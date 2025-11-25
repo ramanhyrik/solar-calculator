@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #00358A 0%, #D9FF0D 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -47,15 +47,11 @@
             font-size: 14px;
         }
 
-        .solar-icon {
-            width: 60px;
-            height: 60px;
+        .logo-img {
+            max-width: 200px;
+            max-height: 100px;
             margin: 0 auto 20px;
-            background: linear-gradient(135deg, #D9FF0D 0%, #b8e600 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block;
         }
 
         .input-group {
@@ -236,7 +232,7 @@
         .btn-calculate {
             width: 100%;
             padding: 16px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #00358A 0%, #D9FF0D 100%);
             color: white;
             border: none;
             border-radius: 12px;
@@ -249,7 +245,7 @@
 
         .btn-calculate:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 53, 138, 0.4);
         }
 
         .calculator-results {
@@ -460,9 +456,7 @@
 <body>
     <div class="calculator-container">
         <div class="header">
-            <div class="solar-icon">
-                <i data-lucide="sun" style="width: 30px; height: 30px; color: #00358A;"></i>
-            </div>
+            <img src="/static/images/logo.png" alt="Company Logo" class="logo-img">
             <h1>מחשבון סולארי</h1>
             <p>חשבו את החיסכון שלכם באנרגיה סולארית</p>
         </div>
