@@ -645,7 +645,7 @@
                 document.getElementById('calcTotalRevenue').textContent = Math.round(data.annual_revenue * 25).toLocaleString();
                 document.getElementById('calcTotalPrice').textContent = Math.round(data.total_price).toLocaleString();
                 document.getElementById('calcRoi').textContent = ((data.annual_revenue / data.total_price) * 100).toFixed(1);
-                document.getElementById('calcSystemSizeDisplay').textContent = systemSize + 'kW';
+                document.getElementById('calcSystemSizeDisplay').textContent = systemSize.toFixed(1) + 'kW';
                 document.getElementById('calcTrees').textContent = data.environmental_impact.trees.toLocaleString();
 
                 // Leasing calculation (simplified)
