@@ -63,9 +63,9 @@ async def calculate_quote(
         }
     }
 
-@app.get("/health")
+@app.api_route("/health", methods=["GET", "HEAD"])
 async def health_check():
-    """Health check endpoint for Render"""
+    """Health check endpoint for UptimeRobot (supports GET and HEAD)"""
     return {"status": "healthy"}
 
 if __name__ == "__main__":
