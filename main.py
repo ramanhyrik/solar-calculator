@@ -47,9 +47,11 @@ async def calculate_quote(
     """Calculate quote based on system size"""
     total_price = system_size * PRICING["price_per_kwp"]
     annual_production = system_size * PRICING["production_per_kwp"]
-    annual_revenue = annual_production * PRICING["tariff_rate"]
+    # Annual income: 900 ILS per kW
+    annual_revenue = system_size * 900
     payback_period = round(total_price / annual_revenue, 2) if annual_revenue > 0 else 0
-    trees = int(annual_production * PRICING["trees_multiplier"])
+    # Trees: 120 trees per kW
+    trees = int(system_size * 120)
     co2_saved = int(annual_production * 0.5)
 
     return {

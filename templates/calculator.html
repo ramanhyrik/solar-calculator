@@ -137,7 +137,7 @@
 
         .direction-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
 
@@ -468,7 +468,6 @@
                 <input type="number" id="roofArea" value="135" step="1" min="10">
                 <span class="input-unit">m²</span>
             </div>
-            <small style="color: #718096; font-size: 12px; margin-top: 5px; display: block;">כל 7 מ"ר גג = 1 קילוואט שיא</small>
         </div>
 
         <div class="model-selector">
@@ -481,23 +480,19 @@
         </div>
 
         <div class="direction-selector">
-            <span class="direction-label">כיוון התקנה</span>
+            <span class="direction-label">סוג הגג</span>
             <div class="direction-grid">
-                <button type="button" class="direction-btn active" onclick="setDirection('south')" id="dir-south">
-                    <span class="icon"><i data-lucide="arrow-down"></i></span>
-                    דרום
+                <button type="button" class="direction-btn active" onclick="setRoofType('tiles')" id="roof-tiles">
+                    <span class="icon"><i data-lucide="home"></i></span>
+                    רעפים
                 </button>
-                <button type="button" class="direction-btn" onclick="setDirection('southeast')" id="dir-southeast">
-                    <span class="icon"><i data-lucide="arrow-down-right"></i></span>
-                    דרום-מזרח
+                <button type="button" class="direction-btn" onclick="setRoofType('flat')" id="roof-flat">
+                    <span class="icon"><i data-lucide="square"></i></span>
+                    שטוח
                 </button>
-                <button type="button" class="direction-btn" onclick="setDirection('southwest')" id="dir-southwest">
-                    <span class="icon"><i data-lucide="arrow-down-left"></i></span>
-                    דרום-מערב
-                </button>
-                <button type="button" class="direction-btn" onclick="setDirection('east_west')" id="dir-east_west">
-                    <span class="icon"><i data-lucide="move-horizontal"></i></span>
-                    מזרח-מערב
+                <button type="button" class="direction-btn" onclick="setRoofType('combined')" id="roof-combined">
+                    <span class="icon"><i data-lucide="layers"></i></span>
+                    משולב
                 </button>
             </div>
         </div>
@@ -571,9 +566,13 @@
                     <div class="trees-icon"><i data-lucide="trees" style="width: 40px; height: 40px; color: #2e7d32;"></i></div>
                     <div>
                         <div class="trees-count" id="calcTrees">0</div>
-                        <div class="trees-label">עצים שנטעו</div>
+                        <div class="trees-label">עצים שינטעו</div>
                     </div>
                 </div>
+            </div>
+
+            <div style="background: #fff3e0; border-radius: 12px; padding: 15px; margin-bottom: 20px; text-align: center; border-right: 4px solid #ff9800;">
+                <p style="color: #e65100; font-size: 13px; font-weight: 600; margin: 0;">גודל המערכת והמחיר הסופי ייקבעו לאחר פגישה עם מומחה סולארי</p>
             </div>
 
             <div class="calc-actions">
@@ -584,7 +583,7 @@
 
     <script>
         let currentModel = 'purchase';
-        let currentDirection = 'south';
+        let currentRoofType = 'tiles';
         let noShading = true;
 
         // Initialize icons
@@ -608,10 +607,10 @@
             }
         }
 
-        function setDirection(direction) {
-            currentDirection = direction;
+        function setRoofType(roofType) {
+            currentRoofType = roofType;
             document.querySelectorAll('.direction-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`dir-${direction}`).classList.add('active');
+            document.getElementById(`roof-${roofType}`).classList.add('active');
         }
 
         function updateShading() {
